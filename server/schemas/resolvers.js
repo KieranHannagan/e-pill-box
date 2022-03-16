@@ -57,13 +57,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addThought: async (parent, args, context) => {
+    addMedication: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
+        const medication = await Medication.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { thoughts: thought._id } },
+          { $push: { medications: medication._id } },
           { new: true }
         );
 
@@ -72,28 +72,41 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReaction: async (parent, { thoughtId, reactionBody }, context) => {
+    removeMedication: async (parent, { drugId }, context) => {
       if (context.user) {
-        const updatedThought = await Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          { $push: { reactions: { reactionBody, username: context.user.username } } },
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { medications: { drugId: drugId } } },
           { new: true, runValidators: true }
         );
 
-        return updatedThought;
+        return updatedUser;
       }
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addFriend: async (parent, { friendId }, context) => {
+    editDrug: async (parent, { lastFill, daySupply }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
+        const updatedMedication = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { friends: friendId } },
+          { ...args, lastFill: lastFill, daySupply: daySupply },
           { new: true }
-        ).populate('friends');
+        ).populate('medications');
 
-        return updatedUser;
+        return updatedMedication;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    editPharmacy: async (parent, { pharmacyName, pharmacyPhone }, context) => {
+      if (context.user) {
+        const updatedMedication = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { ...args, pharmacyName: pharmacyName, pharmacyPhone: pharmacyPhone },
+          { new: true }
+        ).populate('medications');
+
+        return updatedMedication;
       }
 
       throw new AuthenticationError('You need to be logged in!');
