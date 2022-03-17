@@ -10,6 +10,11 @@ const medicationSchema = new Schema(
       minlength: 1,
       maxlength: 280
     },
+    patient: {
+      type: String,
+      required: true,
+      trim: true
+    },
     lastFill: {
       type: Date,
       default: Date.now,
