@@ -74,7 +74,7 @@ const resolvers = {
           { new: true }
         );
 
-        return thought;
+        return medication;
       }
 
       throw new AuthenticationError("You need to be logged in!");

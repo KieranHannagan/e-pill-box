@@ -11,9 +11,9 @@ db.once('open', async () => {
     await User.create(userSeeds);
 
     for (let i = 0; i < medicationSeeds.length; i++) {
-      const { _id, patient } = await Medication.create(medicationSeeds[i]);
+      const { _id, username } = await Medication.create(medicationSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: patient },
+        { username: username },
         {
           $addToSet: {
             medications: _id

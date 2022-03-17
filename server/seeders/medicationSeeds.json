@@ -1,42 +1,42 @@
 [
   {
     "drugName": "Adderall",
-    "patient": "Brian Kernighan"
+    "username": "Brian Kernighan"
   },
   {
     "drugName": "Lipitor",
-    "patient": "Max Kanat-Alexander"
+    "username": "Max Kanat-Alexander"
   },
   {
     "drugName": "Amoxicillin",
-    "patient": "Why The Lucky Stiff"
+    "username": "Why The Lucky Stiff"
   },
   {
     "drugName": "Citalopram",
-    "patient": "Kent Beck"
+    "username": "Kent Beck"
   },
   {
     "drugName": "Lipitor",
-    "patient": "Edward V. Berard"
+    "username": "Edward V. Berard"
   },
   {
     "drugName": "Amoxicillin",
-    "patient": "Alan Kay"
+    "username": "Alan Kay"
   },
   {
     "drugName": "Escitalopram",
-    "patient": "C.A.R. Hoare"
+    "username": "C.A.R. Hoare"
   },
   {
     "drugName": "Citalopram",
-    "patient": "David Thomas"
+    "username": "David Thomas"
   },
   {
     "drugName": "Xannax",
-    "patient": "Donald Knuth"
+    "username": "Donald Knuth"
   },
   {
     "drugName": "Adderall",
-    "patient": "Lernantino"
+    "username": "Lernantino"
   }
 ]

@@ -10,7 +10,7 @@ const medicationSchema = new Schema(
       minlength: 1,
       maxlength: 280
     },
-    patient: {
+    username: {
       type: String,
       required: true,
       trim: true

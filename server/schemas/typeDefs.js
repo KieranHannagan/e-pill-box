@@ -44,7 +44,6 @@ const typeDefs = gql`
     editDrug(drugId: ID!, lastFill: String, daySupply: String): Medication
     editPharmacy(drugId: ID!, pharmacyName: String, pharmacyPhone: String): Medication
   }
-
 `;
 
 module.exports = typeDefs;
