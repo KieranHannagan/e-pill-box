@@ -5,23 +5,22 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    password: String
-    thoughts: [Thought]!
+    medicationCount: Int
+    medications: [Medication]
   }
 
-  type Thought {
+  type Medication {
     _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
+    drugName: String
+    lastFill: String
+    daySupply: Int
+    pharmacy: Pharmacy
   }
 
-  type Comment {
+  type Pharmacy {
     _id: ID
-    commentText: String
-    commentAuthor: String
-    createdAt: String
+    pharmacyName: String
+    pharmacyPhone: String
   }
 
   type Auth {
@@ -30,24 +29,22 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(thoughtId: ID!): Thought
+    medications(username: String): [Medication]
+    medication(_id: ID!): Medication
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    addComment(
-      thoughtId: ID!
-      commentText: String!
-      commentAuthor: String!
-    ): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addUser(username: String!, email: String!, password: String!): Auth
+    addMedication(drugName: String!, lastFill: String, daySupply: String, pharmacyName: String, pharmacyPhone: String): User
+    removeMedication(drugId: ID!): User
+    editDrug(drugId: ID!, lastFill: String, daySupply: String): Medication
+    editPharmacy(drugId: ID!, pharmacyName: String, pharmacyPhone: String): Medication
   }
+
 `;
 
 module.exports = typeDefs;

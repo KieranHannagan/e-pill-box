@@ -1,39 +1,48 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { VariablesAreInputTypesRule } = require("graphql");
-const { User, Thought } = require("../models");
+const { User, Medication } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("medications");
+
+        return userData;
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
     users: async () => {
-      return User.find().populate("thoughts");
+      return User.find().select("-__v -password").populate("medications");
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("thoughts");
+      return User.findOne({ username })
+        .select("-__v -password")
+        .populate("medications");
     },
-    thoughts: async (parent, { username }) => {
+    medications: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Medication.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    medication: async (parent, { _id }) => {
+      return Medication.findOne({ _id });
     },
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      // First we create the user
-      const user = await User.create({ username, email, password });
-      // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
       const token = signToken(user);
-      // Return an `Auth` object that consists of the signed token and user's information
+
       return { token, user };
     },
     login: async (parent, { email, password }) => {
       // Look up the user by the provided username. Since the `email` field is unique, we know that only one person will exist with that username
       var user = await User.findOne({ email });
 
-      // If there is no user with that email address, return an Authentication error stating so
       if (!user) {
         user = await User.findOne({ username: email });
         if (!user) {
@@ -43,51 +52,71 @@ const resolvers = {
         }
       }
 
-      // If there is a user found, execute the `isCorrectPassword` instance method and check if the correct password was provided
       const correctPw = await user.isCorrectPassword(password);
 
-      // If the password is incorrect, return an Authentication error stating so
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
 
-      // If email and password are correct, sign user into the application with a JWT
       const token = signToken(user);
-
-      // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
     },
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      const thought = await Thought.create({ thoughtText, thoughtAuthor });
+    addMedication: async (parent, args, context) => {
+      if (context.user) {
+        const medication = await Medication.create({
+          ...args,
+          username: context.user.username,
+        });
 
-      await User.findOneAndUpdate(
-        { username: thoughtAuthor },
-        { $addToSet: { thoughts: thought._id } }
-      );
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { medications: medication._id } },
+          { new: true }
+        );
 
-      return thought;
+        return thought;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
-    addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        {
-          $addToSet: { comments: { commentText, commentAuthor } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    removeMedication: async (parent, { drugId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { medications: { drugId: drugId } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+    editDrug: async (parent, { lastFill, daySupply }, context) => {
+      if (context.user) {
+        const updatedMedication = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { ...args, lastFill: lastFill, daySupply: daySupply },
+          { new: true }
+        ).populate("medications");
+
+        return updatedMedication;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
-      );
+    editPharmacy: async (parent, { pharmacyName, pharmacyPhone }, context) => {
+      if (context.user) {
+        const updatedMedication = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { ...args, pharmacyName: pharmacyName, pharmacyPhone: pharmacyPhone },
+          { new: true }
+        ).populate("medications");
+
+        return updatedMedication;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
