@@ -2,7 +2,7 @@
           
   ## Description
   E-pillbox is a full stack MERN application that allows users to keep track of their medication usage. It presents all of your medication info 
-  in a single place and allows you to see when you got it filled, what pharmacy you got it filled, if you have taken it today, and the quantity you have left. 
+  in a single place and allows you to see when you got it filled, what pharmacy you got it filled at, if you have taken it today, and the quantity you have left. 
   
   ## Table of Contents
   * [Installation](#installation)
@@ -13,10 +13,11 @@
   * [Email](#email)
   
   ## Installation 
-
+  If you would like to demo the app, you can do so on our live (![server](https://pure-harbor-43860.herokuapp.com/)).
+  If you would like to use this application locally, you can do so by running a `git clone` into your prefered shell. You can then install the required dependencies with an `npm install` from the root directory. This application uses `concurrently` to run the client and the server simultaneously (refer to `package.json`).
   
   ## Usage 
-  
+  To use this
 
   ## License
   ### Badges
