@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/programming-thoughts',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/e-pill-box',
   {
-    useNewUrlParser: true,
+    useNewUrlParser: true, 
     useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
   }
 );
 
