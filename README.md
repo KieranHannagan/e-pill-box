@@ -1,4 +1,4 @@
-# e-pill-box# e-pill-box
+# e-pill-box
           
   ## Description
   E-pillbox is a full stack MERN application that allows users to keep track of their medication usage. It presents all of your medication info 
