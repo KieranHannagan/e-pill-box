@@ -36,8 +36,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addMedication(drugName: String!, lastFill: String, daySupply: String, pharmacyName: String, pharmacyPhone: String): Medication
     removeMedication(drugId: ID!): User
-    editDrug(drugId: ID!, lastFill: String, daySupply: String): Medication
-    editPharmacy(drugId: ID!, pharmacyName: String, pharmacyPhone: String): Medication
+    editDrug(drugId: ID!, lastFill: String!, daySupply: Int!): Medication
+    editPharmacy(drugId: ID!, pharmacyName: String!, pharmacyPhone: String!): Medication
   }
 `;
 

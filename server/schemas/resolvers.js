@@ -94,32 +94,34 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    editDrug: async (parent, { lastFill, daySupply }, context) => {
+    editDrug: async (parent, args, context) => {
+      console.log(args.drugId);
       if (context.user) {
-        const updatedMedication = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { ...args, lastFill: lastFill, daySupply: daySupply },
+        const updatedMedication = await Medication.findOneAndUpdate(
+          { _id: args.drugId },
+          { ...args, lastFill: args.lastFill, daySupply: args.daySupply },
           { new: true }
-        ).populate("medications");
+        );
 
         return updatedMedication;
       }
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    editPharmacy: async (parent, { pharmacyName, pharmacyPhone }, context) => {
+    editPharmacy: async (parent, args, context) => {
+      console.log(args.drugId);
       if (context.user) {
-        const updatedMedication = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { ...args, pharmacyName: pharmacyName, pharmacyPhone: pharmacyPhone },
+        const updatedMedication = await Medication.findOneAndUpdate(
+          { _id: args.drugId },
+          { ...args, pharmacyName: args.pharmacyName, pharmacyPhone: args.pharmacyPhone },
           { new: true }
-        ).populate("medications");
+        );
 
         return updatedMedication;
       }
 
       throw new AuthenticationError("You need to be logged in!");
-    },
+    }
   },
 };
 
