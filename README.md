@@ -35,14 +35,14 @@ You will then be ready to use the E-pillbox, simply navigate to your local host 
   ### Email
   kieranhan1999@gmail.com
   ### GitHub
+https://github.com/mbahl1670
 
 https://github.com/KieranHannagan
 
-https://github.com/mbahl1670
+https://github.com/AlexTheAmateur
 
 https://github.com/Fens05
   
-https://github.com/AlexTheAmateur
   
 
   
