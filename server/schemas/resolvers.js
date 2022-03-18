@@ -72,18 +72,20 @@ const resolvers = {
           { _id: context.user._id },
           { $push: { medications: medication._id } },
           { new: true }
-        );
-
-        return medication;
-      }
-
-      throw new AuthenticationError("You need to be logged in!");
+          );
+          
+          return medication
+        }
+        
+        throw new AuthenticationError("You need to be logged in!");
     },
-    removeMedication: async (parent, { drugId }, context) => {
+    removeMedication: async (parent, args, context) => {
+      // const user = await User.findById({ _id: context.user._id })
+      // console.log(user.medications);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { medications: { drugId: drugId } } },
+          { $pull: { medications: args.drugId } },
           { new: true, runValidators: true }
         );
 
