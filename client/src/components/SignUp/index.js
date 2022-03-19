@@ -1,33 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
+import { Button, Card, Form, Container, Badge } from 'react-bootstrap';
 
-class SignUp extends Component {
-    function () {
+
+
+
+const SignUp = () => {
         return (
-            <form>
-                <h3>Sign Up</h3>
+        
+            <Col  className='Secondary'>
+            <Form inline>
+            
+            <Form.Group row className="mb-2 mr-sm-2" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">
+                Please sign in with your email.
+              </Form.Text>
+            </Form.Group>
 
-                <div className="form-group">
-                    <label> User Name</label>
-                    <input type="text" className="form-control" placeholder="First name" />
-                </div>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
 
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div>
+            </Form.Group>
 
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-                <p className="forgot-password text-right">
-                    Already registered? <a href="#">Sign In...</a>
-                </p>
-            </form>
-        );
-    }
+            <Button variant="secondary" type="submit">
+              Sign Up
+            </Button>
+        </Container>
+    
+    );
 }
 
 export default SignUp;

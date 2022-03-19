@@ -1,40 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Container, ListGroup, } from 'react-bootstrap';
 
-const MedicationList = ({ medication, title }) => {
-  if (!medication.length) {
-    return <h3>Medications</h3>;
-  }
 
+const MedicationsList = () => {
   return (
-    <div>
-      <h3>{title}</h3>
-      {thoughts &&
-        thoughts.map(thought => (
-          <div key={thought._id} className="card mb-3">
-            <p className="card-header">
-              <Link
-                to={`/profile/${thought.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
-              >
-                {thought.username}
-              </Link>{' '}
-              thought on {thought.createdAt}
-            </p>
-            <div className="card-body">
-              <Link to={`/thought/${thought._id}`}>
-                <p>{thought.thoughtText}</p>
-                <p className="mb-0">
-                  Reactions: {thought.reactionCount} || Click to{' '}
-                  {.reactionCount ? 'see' : 'start'} the discussion!
-                </p>
-              </Link>
-            </div>
-          </div>
-        ))}
-    </div>
-  );
-};
+    <Section>
+      <Container>
+        <ListGroup>
+          <ListGroup.Item action variant='secondary'>Med 1</ListGroup.Item>
+        <ListGroup.Item action variant='secondary'>Med 2</ListGroup.Item>
+        <ListGroup.Item action variant='secondary'>Med 3</ListGroup.Item>
+      <ListGroup.Item action variant='secondary'>Med 4</ListGroup.Item>
+    
+    
+    </ListGroup >
 
+  </Container >
+  </Section >
+
+  );
+}
 export default MedicationList;

@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, Form, Container, Badge } from 'react-bootstrap';
 
 import Header from './components/Header';
-
+import Medications from './components/Medications';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
               ePillbox
             </Badge>{' '}
             <br />
-
+         <Medications />
           <Form inline>
             
             <Form.Group row className="mb-2 mr-sm-2" controlId="formBasicEmail">
