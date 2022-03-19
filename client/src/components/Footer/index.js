@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-function Footer() {
-    return (
-        <div>
-            <h1>
-                ePillbox by 
-            </h1>
-        </div>
-    )
- }
+const Footer = () => {
+  return (
+    <footer className="w-100 mt-auto bg-secondary p-4">
+      <div className="container">
+        &copy;{new Date().getFullYear()} ePillbox by
+      </div>
+    </footer>
+  );
+};
 
-    export default Footer;
+export default Footer;
