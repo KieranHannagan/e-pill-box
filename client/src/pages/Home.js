@@ -7,7 +7,11 @@ import { QUERY_THOUGHTS, QUERY_ME_BASIC } from "../utils/queries";
 const Home = () => {
   const loggedIn = Auth.loggedIn();
 
-  return <main></main>;
+  return (
+    <main>
+      <p>Time to take your medications! (Todays DATE)</p>
+    </main>
+  );
 };
 
 export default Home;
