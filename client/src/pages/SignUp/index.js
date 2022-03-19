@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Form, Container, Badge } from 'react-bootstrap';
+import { Button, Card, Form, Container, Badge, Col } from 'react-bootstrap';
 
 
 
@@ -7,7 +7,8 @@ import { Button, Card, Form, Container, Badge } from 'react-bootstrap';
 const SignUp = () => {
         return (
         
-            <Col  className='Secondary'>
+            <Container  className='Secondary'>
+
             <Form inline>
             
             <Form.Group row className="mb-2 mr-sm-2" controlId="formBasicEmail">
