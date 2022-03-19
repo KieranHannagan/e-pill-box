@@ -1,46 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
 import React from 'react';
-import'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Alert, Breadcrumb, Card, Form} from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
+import Header from './components/Header';
+import Footer from './components/Footer';
 
+import Home from './pages/Home';
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SingleThought from './pages/SingleThought';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    <div className="App">
-    <header className="App-header">
-      <Form>
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control type="email" placeholder="Exampl@email.com" />
-          <Form.Text className="text-muted">
-            We'll never share your email address.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label> Password</Form.Label>
-        </Form.Group>
-      </Form>
-      <Card>
-        <Card.Img src ="https://icons.iconarchive.com/icons/medicalwp/medical/256/Pills-icon.png"/>
-        <Card.Title>
-          Card T
-        </Card.Title>
-        <Card.Text>
-         this is the expampl
-        </Card.Text>
-      </Card>
-      <Breadcrumb>
-        <Breadcrumb.Item> Test </Breadcrumb.Item>
-        <Breadcrumb.Item> Test 2</Breadcrumb.Item>
-        <Breadcrumb.Item> Test 3 </Breadcrumb.Item>
-      </Breadcrumb>
-      <Alert vartian="primary"> This is a button</Alert>
-      <Button>TestButton</Button>
-      
-    </header>
-  </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile/:username?" component={Profile} />
+              <Route exact path="/thought/:id" component={SingleThought} />
+
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+          <Footer />
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 
