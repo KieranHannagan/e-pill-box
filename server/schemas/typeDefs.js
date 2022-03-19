@@ -14,11 +14,6 @@ const typeDefs = gql`
     drugName: String
     lastFill: String
     daySupply: Int
-    pharmacy: Pharmacy
-  }
-
-  type Pharmacy {
-    _id: ID
     pharmacyName: String
     pharmacyPhone: String
   }
@@ -39,10 +34,10 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addMedication(drugName: String!, lastFill: String, daySupply: String, pharmacyName: String, pharmacyPhone: String): User
+    addMedication(drugName: String!, lastFill: String, daySupply: String, pharmacyName: String, pharmacyPhone: String): Medication
     removeMedication(drugId: ID!): User
-    editDrug(drugId: ID!, lastFill: String, daySupply: String): Medication
-    editPharmacy(drugId: ID!, pharmacyName: String, pharmacyPhone: String): Medication
+    editDrug(drugId: ID!, lastFill: String!, daySupply: Int!): Medication
+    editPharmacy(drugId: ID!, pharmacyName: String!, pharmacyPhone: String!): Medication
   }
 `;
 
