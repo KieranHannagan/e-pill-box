@@ -1,17 +1,17 @@
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Badge, Card } from 'react-bootstrap';
+import { Button, Container, Badge } from 'react-bootstrap';
 import React from "react";
-import { Redirect, useParams, Link, render } from "react-router-dom";
-import Auth from "../utils/auth";
-import { useQuery } from "@apollo/client";
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from "../utils/queries";
+import { Link } from "react-router-dom";
+// import Auth from "../utils/auth";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_THOUGHTS, QUERY_ME_BASIC } from "../utils/queries";
 
 import { DateTime } from "../utils/date"
 
 const Home = () => {
-  const { username: userParam } = useParams();
-  const loggedIn = Auth.loggedIn();
+  // const { username: userParam } = useParams();
+  // const loggedIn = Auth.loggedIn();
   
  
   //  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -19,7 +19,8 @@ const Home = () => {
   //    <p>Hello</p>);
   //  }
   //  else {
-     if (1 === 1) {
+    const num = 1;
+     if ( num === 1) {
               return (
     
     <section className="App">
