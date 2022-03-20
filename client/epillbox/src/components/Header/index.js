@@ -6,12 +6,12 @@ const Header =() =>{
   return (
     <Navbar bg="secondary" variant="dark">
     <Container>
-    <Navbar.Brand href="#home">ePillbox</Navbar.Brand>
+    <Navbar.Brand href="/">ePillbox</Navbar.Brand>
     <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#profile">Profile</Nav.Link>
-      <Nav.Link href="#medications">Medications</Nav.Link>
-      <Nav.Link href="#pharmacy">Pharmacy List</Nav.Link>
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="profile">Profile</Nav.Link>
+      {/* <Nav.Link href="#medications">Medications</Nav.Link> */}
+      
     </Nav>
     </Container>
   </Navbar>
