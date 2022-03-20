@@ -9,6 +9,7 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
+    confirm_password: "",
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -26,6 +27,10 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+if (formState.password !== formState.confirm_password) {
+  alert("Passwords do not match. Please try again");
+  return;
+}
     try {
       const { data } = await addUser({
         variables: { ...formState },
@@ -74,10 +79,10 @@ const Signup = () => {
               <input
                 className="form-input"
                 placeholder="confirm password"
-                name="password"
+                name="confirm_password"
                 type="password"
-                id="password"
-                value={formState.password}
+                id="confirm_password"
+                value={formState.confirm_password}
                 onChange={handleChange}
               />
               <button className="btn d-block w-100" type="submit">
