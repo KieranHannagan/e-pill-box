@@ -19,7 +19,7 @@ const Home = () => {
   //    <p>Hello</p>);
   //  }
   //  else {
-     if (1 === 1) {
+     if (1 !== 1) {
               return (
     
     <section className="App">
