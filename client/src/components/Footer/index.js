@@ -1,13 +1,27 @@
-import React from 'react';
 
-function Footer() {
+import React from 'react';
+// import './footer.css';
+import { Container, Card } from 'react-bootstrap';
+
+const Footer = () => {
     return (
-        <div>
-            <h1>
-                ePillbox by 
-            </h1>
-        </div>
+
+        <Card text-center bg='secondary' variant='dark' text='warning'>
+
+            <Card.Footer className="md-3 action">
+                <h7 className='text-center' >
+                    Created by Alex Wu,  Kieran Hannagan, Krista Meyer, Michael Bahl
+                    
+                </h7>
+                <div clssName='footer-copyright text-center py-3'>
+                    <Container fluid>
+                        &copy; {new Date().getFullYear()} CopyRight: ePillbox
+                    </Container>
+                </div>
+
+            </Card.Footer>
+        </Card>
+       
     )
  }
-
     export default Footer;
