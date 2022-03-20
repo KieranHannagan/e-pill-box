@@ -23,9 +23,16 @@ const resolvers = {
         .select("-__v -password")
         .populate("medications");
     },
-    medications: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Medication.find(params).sort({ createdAt: -1 });
+    medications: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ username: args.username })
+          .select("-__v -password")
+          .populate("medications");
+
+        return userData;
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
     medication: async (parent, { _id }) => {
       return Medication.findOne({ _id });
@@ -88,6 +95,8 @@ const resolvers = {
           { $pull: { medications: args.drugId } },
           { new: true, runValidators: true }
         );
+
+        Medication.findByIdAndRemove({ _id: args.drugId });
 
         return updatedUser;
       }
