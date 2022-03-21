@@ -14,9 +14,13 @@ const Home = () => {
   // }
   return (
     
-    <main>
+    <container class="md-12">
+      <br></br>
+      <br></br>
       <p>Time to take your medications! (Todays DATE)</p>
-    </main>
+      <br></br>
+      <br></br>
+    </container >
   );
 };
 

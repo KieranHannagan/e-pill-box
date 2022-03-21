@@ -6,16 +6,19 @@ import { Container, Card } from 'react-bootstrap';
 const Footer = () => {
     return (
 
-        <Card text-center bg='secondary' variant='dark' text='warning'>
+        <Card text="center" bg='secondary' variant='dark' text='warning'>
 
             <Card.Footer className="md-3 action">
-                <h7 className='text-center' >
-                    Created by Alex Wu,  Kieran Hannagan, Krista Meyer, Michael Bahl
-                    
-                </h7>
-                <div clssName='footer-copyright text-center py-3'>
-                    <Container fluid>
+                
+                <div className='footer-copyright text-center py-3'>
+                    <Container classname="md-3 fluid">
                         &copy; {new Date().getFullYear()} CopyRight: ePillbox
+                        <br></br>
+                        <br></br>
+                        <h7 className='text-center' >
+                        Created by Alex Wu,  Kieran Hannagan, Krista Meyer, Michael Bahl
+                        </h7>
+
                     </Container>
                 </div>
 
