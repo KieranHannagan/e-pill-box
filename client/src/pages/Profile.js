@@ -1,39 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
+import PopUp from "./addMedication"; 
 
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
-// import { ADD_FRIEND } from '../utils/mutations';
+import { QUERY_ME } from "../utils/queries";
+import { ADD_MEDICATION, REMOVE_MEDICATION } from '../utils/mutations';
 import Auth from "../utils/auth";
 
 const Profile = (props) => {
+
+  const [popState, setPopState] = useState ({ popped: false });
+  const handlePop = async (event) => {
+   this.setPopState({
+    popped: !this.popState
+   });
+  };
+
   const { username: userParam } = useParams();
 
-  // const [addFriend] = useMutation(ADD_FRIEND);
-  // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-  //   variables: { username: userParam },
-  // });
+  const [addMedication] = useMutation(ADD_MEDICATION);
+  const { loading, data } = useQuery(QUERY_ME);
 
   // const user = data?.me || data?.user || {};
 
-  // // redirect to personal profile page if username is yours
-  // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  //   return <Redirect to="/profile" />;
-  // }
+  // redirect to homepage if not logged in
+  if (!Auth.loggedIn()) {
+    return <Redirect to="/" />;
+  }
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // if (!user?.username) {
-  //   return (
-  //     <h4>
-  //       You need to be logged in to see this. Use the navigation links above to
-  //       sign up or log in!
-  //     </h4>
-  //   );
-  // }
-
+  return (
+   <div>
+    <div onClick={handlePop}>
+      <button>New User?</button>
+    </div>
+    {this.popState ? <PopUp toggle={this.togglePop} /> : null}
+   </div>
+  )
+  // return (
+  //   <div>Hello</div>
+  // )
   // const handleClick = async () => {
   //   try {
   //     await addFriend({
@@ -44,7 +53,7 @@ const Profile = (props) => {
   //   }
   // };
 
-  // return (
+  //  return (
   //   <div>
   //     <div className="flex-row mb-3">
   //       <h2 className="bg-dark text-secondary p-3 display-inline-block">
@@ -75,7 +84,7 @@ const Profile = (props) => {
   //       </div>
   //     </div>
   //     <div className="mb-3">{!userParam && <ThoughtForm />}</div>
-  //   </div>
+  //  </div>
   // );
 };
 

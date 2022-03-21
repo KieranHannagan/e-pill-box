@@ -5,7 +5,7 @@ import React from "react";
 import { Redirect, useParams, Link, render } from "react-router-dom";
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from "../utils/queries";
+import { QUERY_ME } from "../utils/queries";
 
 import { DateTime } from "../utils/date"
 
@@ -14,33 +14,26 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
   
  
-  //  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  //    return (
-  //    <p>Hello</p>);
-  //  }
-  //  else {
-     if (1 !== 1) {
-              return (
-    
-    <section className="App">
-      <br>
-      </br>
-        <Container className='home'>
-          <h1>
-        <Badge className="lg-6" pill bg="secondary" text='warning'>
-              ePillbox
-            </Badge>{' '}
-            </h1>
-            <br />
-            <DateTime></DateTime>
-        </Container>
-        <br />
-        <br />
-    </section >
-  );
-   }
-   else {
-         return (
+   if (Auth.loggedIn()) {
+    return (
+      <section className="App">
+        <br>
+        </br>
+          <Container className='home'>
+            <h1>
+          <Badge className="lg-6" pill bg="secondary" text='warning'>
+                ePillbox
+              </Badge>{' '}
+              </h1>
+              <br />
+              <DateTime></DateTime>
+          </Container>
+          <br />
+          <br />
+      </section >
+    );
+   } else {
+    return (
     
     <section className="App">
       <br>
