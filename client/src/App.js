@@ -41,7 +41,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <section className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="flex-wrap justifty-flex-start-min-100-vw">
             <Switch bg='secondary'>
@@ -52,7 +52,7 @@ function App() {
             </Switch>
           </div>
           <Footer />
-        </div>
+        </section>
       </Router>
     </ApolloProvider>
   );

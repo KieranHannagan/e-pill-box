@@ -8,12 +8,11 @@ const Header =() =>{
     <Container>
     <Navbar.Brand href="/">ePillbox</Navbar.Brand>
     <Nav className="md-auto">
-      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link className='justify-right'href="/">Home</Nav.Link>
       <Nav.Link href="profile">Profile</Nav.Link>
       <Nav.Link href="/medications">Medications</Nav.Link>
       {/* <Nav.Link href="#medications">Medications</Nav.Link> */}
-      
-    
+          
     </Nav>
     </Container>
   </Navbar>

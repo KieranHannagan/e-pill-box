@@ -13,7 +13,7 @@ const Home = () => {
   //   return <Redirect to="/profile" />;
   // }
   return (
-    
+  
     <container class="md-12">
       <br></br>
       <br></br>

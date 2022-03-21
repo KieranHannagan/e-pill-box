@@ -27,3 +27,8 @@
     font-size: 20px;
     background-color: rgb(109, 3, 3); 
   }
+
+  .div.card.body{
+    text-align: center;
+    
+  }
