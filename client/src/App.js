@@ -39,10 +39,12 @@ const client = new ApolloClient({
 
 function App() {
   return (
+
     <ApolloProvider client={client}>
+       <Header />
       <Router>
-        <section className="flex-column justify-flex-start min-100-vh">
-          <Header />
+        <div className="flex-column justify-flex-start min-100-vh">
+         
           <div className="flex-wrap justifty-flex-start-min-100-vw">
             <Switch bg='secondary'>
               <Route exact path="/" component={Home} />
@@ -51,8 +53,9 @@ function App() {
               <Route exact path="/profile/:username?" component={Profile} />
             </Switch>
           </div>
-          <Footer />
-        </section>
+        
+        </div >
+        <Footer />
       </Router>
     </ApolloProvider>
   );

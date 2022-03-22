@@ -11,9 +11,8 @@
 
 
 body{
-    margin: 0;
-    width: 100%;
-    height: 100%;
+    margin: 0 auto;
+    height: 100vh;
 }
 main {
     background-color: rgb(80,9,9);
@@ -29,10 +28,16 @@ main {
 }
 
 /*navbar-header*/
-nav {
+ Header{
+  margin: 0 auto;
+  height: 100vh;
+  background-color:rgb(80, 9, 9);
+} */
+Nav {
     margin: 0 auto;
+
     height: 100vh;
-    justify-content: center;
+    justify-content: right;
   }
 nav a {
     padding: 0;
@@ -42,9 +47,9 @@ nav a {
 
 div{
     margin: 0 auto;
-    
+    padding: 0 auto;
     height: 100vh; 
-    /* background-color: rgb(80, 9, 9); */
+    background-color: rgb(80, 9, 9);
     color: burlywood; 
     text-align: center;
 
@@ -53,9 +58,12 @@ div{
 
 form {
     margin:0 auto;
-    width: 100%;
-    height:100vh;
+   
+    height: 100vh;
     text-align: center;
+    background-color: rgb(80, 9, 9);
+    padding: 0 auto;
+    color: burlywood;
 
 }
 
@@ -64,19 +72,20 @@ input {
   padding: 0.25rem;
   border: 1px burlywood;
   outline: none;
-  border-radius: 3px;
-  transition: box-shadow 0.2s;
+  border-radius: 5px;
+  background-color: rgb(80, 9, 9);
+  color: burlywood
 }
 button {
   text-align: center;
   color: burlywood;
+
 }
 
 footer {
     background-color: rgb(80, 9, 9);
     margin: 0 auto;
-    padding: 100%;
-    
+    padding: 0;
     height: 100vh;
     color: burlywood;
     text-align: center;
@@ -96,13 +105,13 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:100vh;  
+  height: 100vh;  
+  margin: 0 auto;
 }
 .page-title {
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    font-size: 2.5rem;
+    margin: 0 auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: auto;
 }
 
 .body{
@@ -110,25 +119,26 @@ footer {
   height: 100vh;
 
 }
-
-.div {
+.type{
+  color: burlywood;
+}
+/* .div {
     margin: 0 auto;
     background-color: rgb(80, 9, 9);
     color: burlywood;
     height: 100vh;
 
-}   
+}    */
 
 .container{
-    width: 100px;
-    height: 100px;
+    margin: 0 auto;
+    height: auto;
 }
 .card{
-    margin:0 0 20px 0;
-    
-    background-color: rgb(80, 9, 9);
+    margin:0 0 auto;
+    /* background-color: rgb(80, 9, 9); */
     color: burlywood;
-    width: auto;
+    height: 100vh;
 
 }
 
@@ -142,18 +152,11 @@ footer {
 
 .App-logo {
   
-  height: max-content;
-  height: min-content;
-  height: fit-content(5em);
-  height: auto;
-  pointer-events: none;
-} 
-.card {
-  height: max-content;
-  height: min-content;
-  height: auto;
+  margin: 0 auto;
+  height: 100vh;
 
-}
+} 
+
 
 
 .App-header {
@@ -170,6 +173,8 @@ footer {
 .App-link {
   color: burlywood;
   background-color: rgb(80,9,9);
+  margin: 0 auto;
+  height: 100vh;
 }
 
 

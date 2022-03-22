@@ -10,7 +10,7 @@ const Footer = () => {
 
             <Card.Footer className="md-3 action">
                 
-                <div className='footer-copyright text-center py-3'>
+                <section className='footer-copyright text-center py-3'>
                     <Container classname="md-3 fluid">
                         &copy; {new Date().getFullYear()} CopyRight: ePillbox
                         <br></br>
@@ -20,7 +20,7 @@ const Footer = () => {
                         </h7>
 
                     </Container>
-                </div>
+                </section>
 
             </Card.Footer>
         </Card>
