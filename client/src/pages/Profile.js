@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import PopUp from "./addMedication"; 
@@ -19,18 +18,6 @@ const Profile = (props) => {
   };
 
   const { username: userParam } = useParams();
-=======
-// import React from "react";
-// import { Redirect, useParams } from "react-router-dom";
-
-// import { useQuery, useMutation } from "@apollo/client";
-// import { QUERY_USER, QUERY_ME } from "../utils/queries";
-// // import { ADD_FRIEND } from '../utils/mutations';
-// import Auth from "../utils/auth";
-
-const Profile = (props) => {
-  // const { username: userParam } = useParams();
->>>>>>> feature/medication-Page
 
   const [addMedication] = useMutation(ADD_MEDICATION);
   const { loading, data } = useQuery(QUERY_ME);
