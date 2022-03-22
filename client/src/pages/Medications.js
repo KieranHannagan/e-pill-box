@@ -46,14 +46,15 @@ const Medications = () => {
             <h1>{data.me.username}'s Medications</h1>
             {medications.map(medication => (
                 <div key={medication._id} className='card'>
-                    <h3><Link
-                      to={`medication/${medication.drugName}`}
-                      className="">
-                    {medication.drugName}</Link></h3>
-                    <button onClick={() => handleDelete(medication._id)}>Delete Medication</button>
+                    <h3>{medication.drugName}</h3>
+                    <h5>Pharmacy Name: <span>{medication.pharmacyName}</span></h5>
+                    <h5>Pharmacy Phone: <span>{medication.pharmacyPhone}</span></h5>
+                    <h5>Day Supply: <span>{medication.daySupply}</span></h5>
+                    <h5>Last Fill Date: <span>{medication.lastFill}</span></h5>
+                    {/* <button onClick={() => handleDelete(medication._id)}>Delete Medication</button> */}
                 </div>
             ))}
-            <button>Add Medication</button> 
+            {/* <button>Add Medication</button>  */}
         </main>
     );
 };
