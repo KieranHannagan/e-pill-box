@@ -13,6 +13,7 @@
 body{
     margin: 0 auto;
     height: 100vh;
+    text-align: center;
 }
 main {
     background-color: rgb(80,9,9);
@@ -28,22 +29,21 @@ main {
 }
 
 /*navbar-header*/
- Header{
+/* Header{
   margin: 0 auto;
-  height: 100vh;
+  text-align: left;
   background-color:rgb(80, 9, 9);
-} */
+}  */
+
 Nav {
     margin: 0 auto;
-
-    height: 100vh;
-    justify-content: right;
-  }
-nav a {
+    justify-content: left;
+  } 
+/* nav a {
     padding: 0;
     margin:0 auto;
     height: 100vh;
-}
+} */
 
 div{
     margin: 0 auto;
@@ -58,7 +58,6 @@ div{
 
 form {
     margin:0 auto;
-   
     height: 100vh;
     text-align: center;
     background-color: rgb(80, 9, 9);
@@ -76,11 +75,15 @@ input {
   background-color: rgb(80, 9, 9);
   color: burlywood
 }
-button {
+
+
+
+
+/* button {
   text-align: center;
   color: burlywood;
 
-}
+} */
 
 footer {
     background-color: rgb(80, 9, 9);
@@ -100,6 +103,7 @@ footer {
     height: 100vh;
     background-color:rgb(80, 9, 9);
     color: burlywood;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .center {
   display: flex;
@@ -119,16 +123,9 @@ footer {
   height: 100vh;
 
 }
-.type{
-  color: burlywood;
-}
-/* .div {
-    margin: 0 auto;
-    background-color: rgb(80, 9, 9);
-    color: burlywood;
-    height: 100vh;
 
-}    */
+
+
 
 .container{
     margin: 0 auto;
@@ -148,9 +145,15 @@ footer {
 }
 
 
+.login-button{
+  color: burlywood;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: darkgrey;
+  margin: 0 auto;
+  padding: 0;
+}
 
-
-.App-logo {
+/* .App-logo {
   
   margin: 0 auto;
   height: 100vh;
@@ -183,4 +186,4 @@ footer {
   height: 5%;
 
 } 
-
+ */
