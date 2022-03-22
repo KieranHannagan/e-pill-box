@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import PopUp from "./addMedication"; 
+import { Button, Container, Badge, Card } from 'react-bootstrap';
 
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
@@ -34,10 +35,10 @@ const Profile = (props) => {
 
   return (
    <div>
-    <div onClick={handlePop}>
+    <div onClick={PopUp}>
       <button>New User?</button>
     </div>
-    {this.popState ? <PopUp toggle={this.togglePop} /> : null}
+    {/* {this.popState ? <PopUp toggle={this.togglePop} /> : null} */}
    </div>
   )
   // return (
