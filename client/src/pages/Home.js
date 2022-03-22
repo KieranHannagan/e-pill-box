@@ -17,11 +17,15 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_ME);
 
   const user = data?.me || {};
-  const myMedications = [
-    {id : 1, name : "cool", count : "10"},
-    {id : 2, name : "medium", count : "12"},
-    {id : 3, name : "hot", count : "15"}
-  ]
+  const myMedications = data?.me.medications || [];
+
+    if (loading) {
+        return <div>Loading...</div>;
+      }
+    
+    // if (!myMedications.length) {
+    //     return <h3>No Medications Yet</h3>;
+    // }
 
   console.log(myMedications);
   // const[]
@@ -42,7 +46,7 @@ const Home = () => {
               <DateTime></DateTime>
               <h3>medications today:</h3>
               <div>{myMedications.map((myMedication)=>{
-                return <p key={myMedication.id}>{`${myMedication.name}: ${myMedication.count} days `}
+                return <p key={myMedication._id}>{`${myMedication.drugName}: ${myMedication.daySupply} days `}
                 <button>Eaten</button></p>
                 })}
               </div>
