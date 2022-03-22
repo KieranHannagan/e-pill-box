@@ -20,7 +20,6 @@ const Medications = () => {
 
     return (
         <main>
-            {data.medications}
             
         </main>
     );
