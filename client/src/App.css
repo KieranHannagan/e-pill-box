@@ -1,16 +1,7 @@
- /* *root{
-    text-align: center;
-    background-color: rgb(80, 9, 9);
-    color: lightgray;
-    margin: auto;
-    min-width: none;
-    padding:0em;
-    min-height: 100%;
-    color:burlywood;
-    }  */
+ 
 
 
-body{
+body {
     margin: 0 auto;
     height: 100vh;
 }
@@ -28,24 +19,23 @@ main {
 }
 
 /*navbar-header*/
- Header{
+/* Header{
   margin: 0 auto;
   height: 100vh;
   background-color:rgb(80, 9, 9);
-} */
+}  */
 Nav {
     margin: 0 auto;
-
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: right;
   }
-nav a {
+/* nav a {
     padding: 0;
     margin:0 auto;
     height: 100vh;
-}
+} */
 
-div{
+div {
     margin: 0 auto;
     padding: 0 auto;
     height: 100vh; 
@@ -54,11 +44,23 @@ div{
     text-align: center;
 
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  margin: 5px 0;
+  line-height: 1.25;
+  color: burlywood;
+}
+
 
 
 form {
     margin:0 auto;
-   
     height: 100vh;
     text-align: center;
     background-color: rgb(80, 9, 9);
@@ -92,7 +94,10 @@ footer {
   
   
   }
+p{
+  color: burlywood;
 
+}
 
 /*class */
 .container{
@@ -119,27 +124,27 @@ footer {
   height: 100vh;
 
 }
-.type{
+.type { 
   color: burlywood;
 }
-/* .div {
-    margin: 0 auto;
-    background-color: rgb(80, 9, 9);
-    color: burlywood;
-    height: 100vh;
-
-}    */
-
+.login-button{
+  color: burlywood;
+}
 .container{
     margin: 0 auto;
     height: auto;
 }
-.card{
+.card {
     margin:0 0 auto;
-    /* background-color: rgb(80, 9, 9); */
+    background-color: rgb(80, 9, 9); 
     color: burlywood;
     height: 100vh;
 
+}
+.card-body {
+  margin: 0 auto;
+  background-color: darkgrey;
+  color: burlywood;
 }
 
 .flex-row {
@@ -178,9 +183,5 @@ footer {
 }
 
 
-.img {
-  width: 5%;
-  height: 5%;
 
-} 
 

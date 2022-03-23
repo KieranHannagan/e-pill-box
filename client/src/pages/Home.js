@@ -1,4 +1,4 @@
-iimport '../App.css';
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Container, Badge } from 'react-bootstrap';
 import React from "react";
