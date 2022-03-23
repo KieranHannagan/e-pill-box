@@ -1,8 +1,8 @@
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Badge, Card } from 'react-bootstrap';
+import { Button, Container, Badge } from 'react-bootstrap';
 import React from "react";
-import { Redirect, useParams, Link, render } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
@@ -11,15 +11,15 @@ import { EDIT_DRUG } from "../utils/mutations";
 import { DateTime } from "../utils/date"
 
 const Home = () => {
-  const { username: userParam } = useParams();
-  const loggedIn = Auth.loggedIn();
+  // const { username: userParam } = useParams();
+  // const loggedIn = Auth.loggedIn();
 
   const { loading, data } = useQuery(QUERY_ME);
 
   const user = data?.me || {};
   const myMedications = data?.me.medications || [];
 
-  const[setMedication, { data2 , loading2 }] = useMutation(EDIT_DRUG);
+  const[setMedication] = useMutation(EDIT_DRUG);
   // const medicationTaken = async () => {
   //   useMedication(myMedications._id, myMedications.lastFill, myMedications.daySupply - 1)
   // }
@@ -30,9 +30,6 @@ const Home = () => {
     // if (!myMedications.length) {
     //     return <h3>No Medications Yet</h3>;
     // }
-
-  console.log(myMedications);
-  // const[]
 
    if (Auth.loggedIn()) {
     return (
@@ -51,8 +48,8 @@ const Home = () => {
               <h3>medications today:</h3>
               <div>{myMedications.map((myMedication)=>{
                 return <p key={myMedication._id}>{`${myMedication.drugName}: ${myMedication.daySupply} days `}
-                {/* <button onClick={() => setMedication({ variables: { drugId : myMedication._id, daySupply : myMedication.daySupply - 1 , lastFill : myMedication.lastFill}})}>Eaten</button> */}
-                <button key={myMedication._id} onClick={() => console.log("hello")}>Eaten</button>
+                <button onClick={() => setMedication({ variables: { drugId : 1, daySupply : 10 , lastFill : `March 10th, 2022`}})}>✓</button>
+                {/* <button key={myMedication._id} onClick={() => console.log(`${myMedication.drugName}`)}>Eaten</button> */}
                 </p>
                 })}
               </div>
