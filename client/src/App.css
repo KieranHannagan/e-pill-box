@@ -1,18 +1,201 @@
-.App {
+ 
+
+
+body {
+    margin: 0 auto;
+    height: 100vh;
+}
+main {
+    background-color: rgb(80,9,9);
+    color: burlywood;
+    margin: 0 auton;
+    height: 100vh;
+    padding: 0;
+    font-family: 'fantasy';
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+/*navbar-header*/
+/* Header{
+  margin: 0 auto;
+  height: 100vh;
+  background-color:rgb(80, 9, 9);
+}  */
+Nav {
+    margin: 0 auto;
+    /* height: 100vh; */
+    justify-content: left;
+
+  }
+  
+  /* nav a {
+    padding: 0;
+    margin:0 auto;
+    height: 100vh;
+} */
+
+div {
+    margin: 0 auto;
+    padding: 0 auto;
+    height: 100vh; 
+    background-color: rgb(80, 9, 9);
+    color: burlywood; 
+    text-align: center;
+
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  margin: 5px 0;
+  line-height: 1.25;
+  color: burlywood;
+}
+
+
+
+form {
+    margin:0 auto;
+    height: 100vh;
     text-align: center;
     background-color: rgb(80, 9, 9);
-    color: lightgray;
-    margin: 0px;
-    color:burlywood;
-    }
+    padding: 0 auto;
+    color: burlywood;
+
+}
+
+input {
+
   
-   .badge.evne-large-badger{
-     font-size:1 .1em;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border: 1px burlywood;
+  outline: none;
+  border-radius: 5px;
+  background-color: rgb(80, 9, 9);
+  color: burlywood
+}
+button {
+  text-align: center;
+  color: burlywood;
+
+}
+
+footer {
+    background-color: rgb(80, 9, 9);
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    color: burlywood;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
   
-   }
-  
-  .Button {
-  
-    padding: 20px;
   }
+p{
+  color: burlywood;
+
+}
+
+/*class */
+.container{
+    margin: 0 auto;
+    height: 100vh;
+    background-color:rgb(80, 9, 9);
+    color: burlywood;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
+  margin: 0 auto;
+}
+.page-title {
+    margin: 0 auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: auto;
+}
+
+.body{
+  margin: 0 auto;
+  height: 100vh;
+
+}
+.type { 
+  color: burlywood;
+}
+.login-button{
+  padding: 5cm;
+  margin: 5px;
+  color: burlywood;
+}
+.container{
+    margin: 0 auto;
+    height: auto;
+}
+.card {
+    margin:0 0 auto;
+    background-color: rgb(80, 9, 9); 
+    color: burlywood;
+    height: 100vh;
+
+}
+.card-body {
+  margin: 0 auto;
+  background-color: darkgrey;
+  color: burlywood;
+}
+
+
+
+
+
+
+
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+.App-logo {
+  
+  margin: 0 auto;
+  height: 100vh;
+
+} 
+
+
+/* 
+.App-header {
+  background-color: #310c07;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(185, 179, 133);
+} */
+
+.App-link {
+  color: burlywood;
+  background-color: rgb(80,9,9);
+  margin: 0 auto;
+  height: 100vh;
+}
+
+
+
+
