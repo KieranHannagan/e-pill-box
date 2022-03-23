@@ -11,7 +11,7 @@ main {
     margin: 0 auton;
     height: 100vh;
     padding: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'fantasy';
     font-weight: 500;
     font-size: 20px;
     text-align: center;
@@ -27,9 +27,11 @@ main {
 Nav {
     margin: 0 auto;
     /* height: 100vh; */
-    justify-content: right;
+    justify-content: left;
+
   }
-/* nav a {
+  
+  /* nav a {
     padding: 0;
     margin:0 auto;
     height: 100vh;
@@ -70,6 +72,8 @@ form {
 }
 
 input {
+
+  
   font-size: 1rem;
   padding: 0.25rem;
   border: 1px burlywood;
@@ -91,6 +95,7 @@ footer {
     height: 100vh;
     color: burlywood;
     text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
   
   }
@@ -128,6 +133,8 @@ p{
   color: burlywood;
 }
 .login-button{
+  padding: 5cm;
+  margin: 5px;
   color: burlywood;
 }
 .container{
@@ -147,6 +154,13 @@ p{
   color: burlywood;
 }
 
+
+
+
+
+
+
+
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -163,7 +177,7 @@ p{
 } 
 
 
-
+/* 
 .App-header {
   background-color: #310c07;
   min-height: 100vh;
@@ -173,7 +187,7 @@ p{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(185, 179, 133);
-}
+} */
 
 .App-link {
   color: burlywood;
