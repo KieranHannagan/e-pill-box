@@ -23,9 +23,16 @@ const resolvers = {
         .select("-__v -password")
         .populate("medications");
     },
-    medications: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Medication.find(params).sort({ createdAt: -1 });
+    medications: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ username: args.username })
+          .select("-__v -password")
+          .populate("medications");
+
+        return userData;
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
     medication: async (parent, { _id }) => {
       return Medication.findOne({ _id });
@@ -72,52 +79,58 @@ const resolvers = {
           { _id: context.user._id },
           { $push: { medications: medication._id } },
           { new: true }
-        );
-
-        return medication;
-      }
-
-      throw new AuthenticationError("You need to be logged in!");
+          );
+          
+          return medication
+        }
+        
+        throw new AuthenticationError("You need to be logged in!");
     },
-    removeMedication: async (parent, { drugId }, context) => {
+    removeMedication: async (parent, args, context) => {
+      // const user = await User.findById({ _id: context.user._id })
+      // console.log(user.medications);
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { medications: { drugId: drugId } } },
+          { $pull: { medications: args.drugId } },
           { new: true, runValidators: true }
         );
+
+        Medication.findByIdAndRemove({ _id: args.drugId });
 
         return updatedUser;
       }
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    editDrug: async (parent, { lastFill, daySupply }, context) => {
+    editDrug: async (parent, args, context) => {
+      console.log(args.drugId);
       if (context.user) {
-        const updatedMedication = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { ...args, lastFill: lastFill, daySupply: daySupply },
+        const updatedMedication = await Medication.findOneAndUpdate(
+          { _id: args.drugId },
+          { ...args, lastFill: args.lastFill, daySupply: args.daySupply },
           { new: true }
-        ).populate("medications");
+        );
 
         return updatedMedication;
       }
 
       throw new AuthenticationError("You need to be logged in!");
     },
-    editPharmacy: async (parent, { pharmacyName, pharmacyPhone }, context) => {
+    editPharmacy: async (parent, args, context) => {
+      console.log(args.drugId);
       if (context.user) {
-        const updatedMedication = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { ...args, pharmacyName: pharmacyName, pharmacyPhone: pharmacyPhone },
+        const updatedMedication = await Medication.findOneAndUpdate(
+          { _id: args.drugId },
+          { ...args, pharmacyName: args.pharmacyName, pharmacyPhone: args.pharmacyPhone },
           { new: true }
-        ).populate("medications");
+        );
 
         return updatedMedication;
       }
 
       throw new AuthenticationError("You need to be logged in!");
-    },
+    }
   },
 };
 

@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
-const pharmacySchema = require('./Pharmacy');
+// const pharmacySchema = require('./Pharmacy');
 
 const medicationSchema = new Schema(
   {
@@ -23,7 +23,12 @@ const medicationSchema = new Schema(
     daySupply: {
       type: Number 
     },
-    pharmacy: pharmacySchema
+    pharmacyName: {
+      type: String
+    },
+    pharmacyPhone: {
+      type: String
+    }
   },
   {
     toJSON: {

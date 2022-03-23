@@ -5,6 +5,7 @@
   in a single place and allows you to see when you got it filled, what pharmacy you got it filled at, if you have taken it today, and the quantity you have left. 
   
   ## Table of Contents
+  * [Heroku Link](#heroku-link)
   * [Installation](#installation)
   * [Usage](#usage)
   * [Technologies](#technologies)
@@ -13,6 +14,9 @@
   * [GitHub](#github)
   * [Email](#email)
   
+  ## Heroku Link
+  Insert Heroku Link Here
+
   ## Installation 
   If you would like to demo the app, you can do so on our live server (refer to [Usage](#usage)).
 
@@ -44,7 +48,9 @@ You will then be ready to use the E-pillbox, simply navigate to your local host 
   ## Questions
   If you have any questions, feel free to reach out and contact me via email.
   ### Email
-  kieranhan1999@gmail.com
+  kieranhan1999@gmail.com  
+  mbahl1670@gmail.com
+
   ### GitHub
 
 https://github.com/KieranHannagan
