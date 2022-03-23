@@ -47,7 +47,7 @@ const Home = () => {
               <DateTime></DateTime>
               <h3>medications today:</h3>
               <div>{myMedications.map((myMedication)=>{
-                return <p key={myMedication._id}>{`${myMedication.drugName}: ${myMedication.daySupply} days `}
+                return <p key={myMedication._id} className='medbut'>{`${myMedication.drugName}: ${myMedication.daySupply} days `}
                 <button onClick={() => setMedication({ variables: { drugId : 1, daySupply : 10 , lastFill : `March 10th, 2022`}})}>✓</button>
                 {/* <button key={myMedication._id} onClick={() => console.log(`${myMedication.drugName}`)}>Eaten</button> */}
                 </p>
@@ -84,9 +84,11 @@ const Home = () => {
               ePillbox
             </Badge>{' '}
             </h1>
-            <br />   
+            <br />  
+            <br>
+            </br> 
             <Link to="/Signup">    
-            <Button variant="secondary" type="submit" className='custom-btn'>
+            <Button variant="secondary" type="submit" className='btn-lg homebut'>
               Sign up
             </Button>
             </Link>
@@ -95,12 +97,34 @@ const Home = () => {
             </br>
             <br>
             </br>
+            <br>
+            </br>
             <Link to="/Login">
-            <Button className='lg-6' variant="secondary" type="submit">
+            <Button className='btn-lg homebut' variant="secondary" type="submit">
                  Login
             </Button>
             </Link>
         </Container>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
         <br>
         </br>
         <br>

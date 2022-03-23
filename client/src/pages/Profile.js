@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 //import PopUp from "./addMedication"; 
-import { Button, Container, Badge, Card } from 'react-bootstrap';
+import { Container, Badge } from 'react-bootstrap';
 
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_ME, QUERY_MEDICATIONS } from "../utils/queries";
-import { ADD_MEDICATION, REMOVE_MEDICATION } from '../utils/mutations';
+import { QUERY_ME } from "../utils/queries";
+import { ADD_MEDICATION } from '../utils/mutations';
 import Auth from "../utils/auth";
 
 const Profile = (props) => {
@@ -36,6 +36,7 @@ const Profile = (props) => {
       const { data } = await addMedication({
         variables: { ...formState },
       });
+      console.log(data)
       setFormState({
         drug_name: "",
         last_fill: "",

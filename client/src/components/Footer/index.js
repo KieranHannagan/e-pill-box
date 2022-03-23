@@ -5,13 +5,13 @@ import { Container, Card } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-        <footer>
-        <Card text="center" bg='secondary' variant='dark' text='warning'>
+        <footer className="navbar-fixed-bottom">
+        <Card bg='secondary' variant='dark' text='warning center'>
 
-            <Card.Footer className="md-3 action">
+            <Card.Footer className="md-3 action ">
                 
                 <section className='footer-copyright text-center py-3'>
-                    <Container classname="md-3 fluid">
+                    <Container className="md-3 fluid">
                         &copy; {new Date().getFullYear()} CopyRight: ePillbox
                         <br></br>
                         <br></br>

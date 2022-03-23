@@ -1,4 +1,7 @@
-
+body {
+  height: 100%;
+  width: 100%;
+}
 .App {
   background-color: rgb(80,9,9);
 }
@@ -13,8 +16,14 @@ p {
 
 
 footer {
-   bottom: 0 auto;
+  position: relative;
+  bottom: 0;
 }
+
+/* .homebut {
+  width: 20rem !important;
+  padding: 5rem;
+} */
 /* body {
     margin: 0 auto;
     height: 100vh;
