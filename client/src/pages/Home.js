@@ -2,36 +2,41 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Container, Badge } from 'react-bootstrap';
 import React from "react";
-import { Redirect, useParams, Link, render } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { EDIT_DRUG } from "../utils/mutations";
 
 import { DateTime } from "../utils/date"
 
 const Home = () => {
-  const { username: userParam } = useParams();
-  const loggedIn = Auth.loggedIn();
+  // const { username: userParam } = useParams();
+  // const loggedIn = Auth.loggedIn();
 
   const { loading, data } = useQuery(QUERY_ME);
 
   const user = data?.me || {};
-  const myMedications = [
-    {id : 1, name : "cool", count : "10"},
-    {id : 2, name : "medium", count : "12"},
-    {id : 3, name : "hot", count : "15"}
-  ]
+  const myMedications = data?.me.medications || [];
 
-  console.log(myMedications);
-  // const[]
+  const[setMedication] = useMutation(EDIT_DRUG);
+  // const medicationTaken = async () => {
+  //   useMedication(myMedications._id, myMedications.lastFill, myMedications.daySupply - 1)
+  // }
+    if (loading) {
+        return <div>Loading...</div>;
+      }
+    
+    // if (!myMedications.length) {
+    //     return <h3>No Medications Yet</h3>;
+    // }
 
    if (Auth.loggedIn()) {
     return (
       <section className="App">
         <br>
         </br>
-          <Container className='home'>
+          <Container className='home container'>
             <h1>
           <Badge className="lg-6" pill bg="secondary" text='warning'>
                 ePillbox
@@ -42,13 +47,29 @@ const Home = () => {
               <DateTime></DateTime>
               <h3>medications today:</h3>
               <div>{myMedications.map((myMedication)=>{
-                return <p key={myMedication.id}>{`${myMedication.name}: ${myMedication.count} days `}
-                <button>Eaten</button></p>
+                return <p key={myMedication._id} className='medbut'>{`${myMedication.drugName}: ${myMedication.daySupply} days `}
+                <button onClick={() => setMedication({ variables: { drugId : 1, daySupply : 10 , lastFill : `March 10th, 2022`}})}>✓</button>
+                {/* <button key={myMedication._id} onClick={() => console.log(`${myMedication.drugName}`)}>Eaten</button> */}
+                </p>
                 })}
               </div>
           </Container>
-          <br />
-          <br />
+          <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
       </section >
     );
    } else {
@@ -57,15 +78,17 @@ const Home = () => {
     <section className="App">
       <br>
       </br>
-        <Container className='home'>
+        <Container className='home container'>
           <h1>
         <Badge className="lg-6" pill bg="secondary" text='warning'>
               ePillbox
             </Badge>{' '}
             </h1>
-            <br />   
+            <br />  
+            <br>
+            </br> 
             <Link to="/Signup">    
-            <Button variant="secondary" type="submit" className='custom-btn'>
+            <Button variant="secondary" type="submit" className='btn-lg homebut'>
               Sign up
             </Button>
             </Link>
@@ -74,12 +97,34 @@ const Home = () => {
             </br>
             <br>
             </br>
+            <br>
+            </br>
             <Link to="/Login">
-            <Button className='lg-6' variant="secondary" type="submit">
+            <Button className='btn-lg homebut' variant="secondary" type="submit">
                  Login
             </Button>
             </Link>
         </Container>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
         <br>
         </br>
         <br>

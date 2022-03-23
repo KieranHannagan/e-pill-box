@@ -1,19 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Redirect, useParams } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 // import { useQuery } from '@apollo/client';
 
 import { QUERY_ME } from '../utils/queries';
-import { ADD_MEDICATION, REMOVE_MEDICATION } from '../utils/mutations';
-// import Auth from '../utils/auth';
+// import { REMOVE_MEDICATION } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Medications = () => { 
     const { loading, data } = useQuery(QUERY_ME);
-    const [deleteMedication, { error }] = useMutation(REMOVE_MEDICATION);
+//    const [deleteMedication, { error }] = useMutation(REMOVE_MEDICATION);
 
     const medications = data?.me.medications || [];
+
+    // redirect to homepage if not logged in
+    if (!Auth.loggedIn()) {
+        return <Redirect to="/" />;
+    }
 
     if (loading) {
         return <div>Loading...</div>;
@@ -23,23 +28,23 @@ const Medications = () => {
         return <h3>No Medications Yet</h3>;
     }
 
-    const handleDelete = async (drugId) => {     
+    // const handleDelete = async (drugId) => {     
         
-        try {
-            const { data } = await deleteMedication({
-                variables: { drugId }
-            });
+    //     try {
+    //         const { data } = await deleteMedication({
+    //             variables: { drugId }
+    //         });
 
-            if (error) {
-                throw new Error('Something went wrong!');
-            }
-            deleteMedication(drugId);
-        } catch (err) {
-            console.error(err);
-        }
+    //         if (error) {
+    //             throw new Error('Something went wrong!');
+    //         }
+    //         deleteMedication(drugId);
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
 
 
-    };
+    // };
 
     return (
         <main>  

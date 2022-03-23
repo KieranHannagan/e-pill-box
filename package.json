@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/KieranHannagan/e-pill-box#readme",
   "dependencies": {
-    "concurrently": "^5.1.0"
+    "apollo-server-express": "^3.6.4",
+    "bcrypt": "^5.0.1",
+    "concurrently": "^5.1.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7"
   }
 }

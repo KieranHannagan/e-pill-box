@@ -85,11 +85,11 @@ if (formState.password !== formState.confirm_password) {
                 value={formState.confirm_password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
+              <button className="login-btn d-block w-100" type="submit">
                 Submit
               </button>
             </form>
-
+            
             {error && <div>Signup failed</div>}
           </div>
         </div>
