@@ -43,9 +43,9 @@ function App() {
     <ApolloProvider client={client}>
        <Header />
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div>
          
-          <div className="flex-wrap justifty-flex-start-min-100-vw">
+          <div>
             <Switch bg='secondary'>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
@@ -56,8 +56,8 @@ function App() {
           </div>
         
         </div >
-        <Footer />
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }

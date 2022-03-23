@@ -36,7 +36,7 @@ const Home = () => {
       <section className="App">
         <br>
         </br>
-          <Container className='home'>
+          <Container className='home container'>
             <h1>
           <Badge className="lg-6" pill bg="secondary" text='warning'>
                 ePillbox
@@ -54,8 +54,22 @@ const Home = () => {
                 })}
               </div>
           </Container>
-          <br />
-          <br />
+          <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
       </section >
     );
    } else {
@@ -64,7 +78,7 @@ const Home = () => {
     <section className="App">
       <br>
       </br>
-        <Container className='home'>
+        <Container className='home container'>
           <h1>
         <Badge className="lg-6" pill bg="secondary" text='warning'>
               ePillbox

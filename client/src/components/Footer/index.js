@@ -5,7 +5,7 @@ import { Container, Card } from 'react-bootstrap';
 
 const Footer = () => {
     return (
-
+        <footer>
         <Card text="center" bg='secondary' variant='dark' text='warning'>
 
             <Card.Footer className="md-3 action">
@@ -24,7 +24,7 @@ const Footer = () => {
 
             </Card.Footer>
         </Card>
-       
+        </footer>
     )
  }
     export default Footer;

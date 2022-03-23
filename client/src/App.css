@@ -1,7 +1,21 @@
- 
+
+.App {
+  background-color: rgb(80,9,9);
+}
+
+p {
+  color: burlywood; 
+}
+
+.home {
+  text-align: center;
+}
 
 
-body {
+footer {
+   bottom: 0 auto;
+}
+/* body {
     margin: 0 auto;
     height: 100vh;
 }
@@ -16,7 +30,7 @@ main {
     font-size: 20px;
     text-align: center;
     
-}
+} */
 
 /*navbar-header*/
 /* Header{
@@ -24,9 +38,9 @@ main {
   height: 100vh;
   background-color:rgb(80, 9, 9);
 }  */
-Nav {
+/* Nav {
     margin: 0 auto;
-    /* height: 100vh; */
+    /* height: 100vh;
     justify-content: left;
 
   }
@@ -37,7 +51,7 @@ Nav {
     height: 100vh;
 } */
 
-div {
+/* div {
     margin: 0 auto;
     padding: 0 auto;
     height: 100vh; 
@@ -102,10 +116,10 @@ footer {
 p{
   color: burlywood;
 
-}
+} */
 
 /*class */
-.container{
+/* .container{
     margin: 0 auto;
     height: 100vh;
     background-color:rgb(80, 9, 9);
@@ -174,7 +188,7 @@ p{
   margin: 0 auto;
   height: 100vh;
 
-} 
+}  */
 
 
 /* 
@@ -189,12 +203,6 @@ p{
   color: rgb(185, 179, 133);
 } */
 
-.App-link {
-  color: burlywood;
-  background-color: rgb(80,9,9);
-  margin: 0 auto;
-  height: 100vh;
-}
 
 
 
